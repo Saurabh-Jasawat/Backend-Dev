@@ -1,0 +1,42 @@
+const fs = require("fs");
+
+const answers = `
+1. Difference between synchronous and asynchronous file operations:
+Synchronous operations block the execution until the task is completed,
+whereas asynchronous operations do not block execution and run in the background.
+
+2. When should you use file streams instead of reading the entire file?
+File streams should be used when working with large files to save memory
+and process data in chunks.
+
+3. Purpose of the 'utf8' encoding parameter:
+The 'utf8' encoding tells Node.js how to correctly read and interpret text data.
+
+4. Common error codes in file system operations:
+ENOENT means file or directory not found.
+EACCES means permission denied.
+EEXIST means file already exists.
+
+5. Safely deleting a directory with all its contents:
+A directory can be safely deleted using recursive delete methods
+after ensuring important data is backed up.
+
+6. Concept of piping in streams:
+Piping is used to transfer data from one stream to another.
+Example: reading data from a file and writing it to another file.
+
+7. Importance of handling errors in file operations:
+Error handling prevents application crashes and helps identify issues during file access.
+
+8. Difference between writeFile and appendFile:
+writeFile overwrites existing content,
+while appendFile adds new content at the end of the file.
+`;
+
+fs.appendFile("theory_answers.txt", answers, (err) => {
+  if (err) {
+    console.log("Error writing answers");
+  } else {
+    console.log("Theory answers appended successfully");
+  }
+});
